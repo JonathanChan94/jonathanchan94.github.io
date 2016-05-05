@@ -6,11 +6,15 @@ var allheight = document.documentElement.scrollHeight; //获取文档的总高�
 var index = 0;
 
 //使得无论从哪个页面刷新都会跳回第一页
-setTimeout(function() {
-    window.scrollTo(0, 0);
-    showButton(index);
-    move(index);
-}, 1)
+// setTimeout(function() {
+//     window.scrollTo(0, 0);
+//     showButton(index);
+//     move(index);
+// }, 1000)
+var curH=window.pageYOffset;
+index=Math.floor(curH/pageH);
+move(index);
+showButton(index);
 
 
 var scrollFunc = function(e) {
