@@ -6,115 +6,13 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel='icon' href='pic.ico' type=‘image/x-ico’ /> 
 	
-	<style type="text/css">
-	*{
-		margin:0;
-		padding:0;
-	}
-	#top{
-		height:400px;
-		background:lightblue;
-		background-image: url("images/back.jpg");
-		background-repeat:no-repeat;
-		background-size:100% auto;
-	}
-	#top>a{
-		display:block;
-		width:100px;
-		text-align: center;
-		text-decoration:none;
-		color:white;
-		font-size:20px;
-		padding:20px 0 20px 0;
-		margin-left: 10px;
-		position:relative;
-	}
-	#top>a::before,#top>a::after{
-		content:"";
-		width:100%;
-		height:2px;
-		position:absolute;
-		left:0;
-		background:#fff;
-		opacity:0;
-		transition:all .4s;
-	}
-	#top>a:before{
-		top:0;
-	}
-	#top>a:after{
-		bottom:0;
-	}
-	#top>a:hover:before{
-		opacity:1;
-		top:12px;
-	}
-	#top>a:hover:after{
-		opacity:1;
-		bottom:12px;
-	}
-	#top>h1{
-		text-align:center;
-		font-size:60px;
-		color:white;
-		line-height: 350px;
-	}
-
-	#main{
-		margin:0 auto;
-		position:relative;
-	}
-	.box{
-		padding:20px 0 0 20px;
-		float:left;
-	}
-	.pic{
-		padding:10px;
-		border:2px solid #eee;
-		border-radius:5px;
-		box-shadow:0 0 5px #eee;
-	}
-	.box img{
-		width:250px;
-		height:auto;
-		cursor:pointer;
-	}
-
-	#mask{
-		width:100%;
-		height:100%;
-		position:absolute;
-		top:0;
-		left:0;
-		background:rgba(0,0,0,.7);
-	}
-	#showpic{
-		width:600px;
-		height:auto;
-		position:fixed;
-		top:100px;
-		left:50%;
-		margin-left:-300px;
-		z-index:100;
-	}
-	#showpic img{
-		width:600px;
-	}
-
-	#showpic #close{
-		text-decoration: none;
-		color:white;
-		font-size:30px;
-		position:absolute;
-		right:-30px;
-		top:0px;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	
 	<div id="top">
 		<a href="http://www.jonathanchan94.com">My Blog</a>
+		<a href="scroll/index.html">简历</a>
 		<h1>My Favorite Photos</h1>
 	</div>
 	<div id="main">
@@ -147,6 +45,16 @@
 		</div>
 		<div class="box">
 			<div class="pic"><img src="images/10.jpg" alt=""></div>
+		</div>
+	</div>
+
+	<div id="foot">
+		<div id="foot-content">
+			<ul>
+				<li><a href="http://www.jonathanchan94.com">&#xe900;</a></li>
+				<li><a href="https://github.com/AnneShulman">&#xe903;</a></li>
+				<li><a href="http://blog.csdn.net/low_key_shulman">&#xe901;</a></li>
+			</ul>
 		</div>
 	</div>
 

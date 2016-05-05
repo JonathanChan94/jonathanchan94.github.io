@@ -63,6 +63,8 @@
 					arrH[index] = oElement[i].offsetHeight + oElement[i].offsetTop;
 				}
 			}
+			var maxH=Math.max.apply(null,arrH);
+			document.getElementById("main").style.height=maxH+10+"px";//设置main的高度便于确定foot的位置
 		}
 
 		function findElement(clsName, parent) {
