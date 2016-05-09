@@ -65,6 +65,7 @@
 			}
 			var maxH=Math.max.apply(null,arrH);
 			document.getElementById("main").style.height=maxH+10+"px";//设置main的高度便于确定foot的位置
+			document.getElementById("foot").style.display="block";
 		}
 
 		function findElement(clsName, parent) {

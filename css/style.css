@@ -119,6 +119,7 @@
 		background-repeat:no-repeat;
 		background-size:100%;
 		background-position:0 80%;
+		display:none;
 	}
 	#foot-content{
 		width:100%;
