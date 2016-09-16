@@ -40,31 +40,31 @@
 			}
 		})();
 
-		proxyImage.setSrc("./images/1.jpg","./images/2.jpg","./images/3.jpg","./images/4.jpg","./images/5.jpg","./images/6.jpg","./images/7.jpg","./images/8.jpg","./images/9.jpg","./images/10.jpg");
+		proxyImage.setSrc("./images/1.jpg", "./images/2.jpg", "./images/3.jpg", "./images/4.jpg", "./images/5.jpg", "./images/6.jpg", "./images/7.jpg", "./images/8.jpg", "./images/9.jpg", "./images/10.jpg");
 
 
 		window.onload = function() {
 			waterfall("box", "main");
 			var count = 0;
-			var createImage=function(){
-				var oParent=document.getElementById("main");
-				var oBox=document.createElement("div");
-				oBox.className="box";
+			var createImage = function() {
+				var oParent = document.getElementById("main");
+				var oBox = document.createElement("div");
+				oBox.className = "box";
 				oParent.appendChild(oBox);
-				var oPic=document.createElement("div");
-				oPic.className="pic";
+				var oPic = document.createElement("div");
+				oPic.className = "pic";
 				oBox.appendChild(oPic);
-				var oImg=document.createElement("img");
+				var oImg = document.createElement("img");
 				oPic.appendChild(oImg);
-				var img=new Image;
-				img.onload=function(){
-					console.log(oImg.src);
-					oImg.src=img.src;
-					console.log(oImg.src);
+				var img = new Image;
+				img.onload = function() {
+					// console.log(oImg.src);
+					oImg.src = img.src;
+					// console.log(oImg.src);
 				}
-				return function(src){
-					oImg.src="./images/0.jpg";
-					img.src=src;
+				return function(src) {
+					oImg.src = "./images/0.jpg";
+					img.src = src;
 				}
 			};
 			window.onscroll = function() {
@@ -78,7 +78,7 @@
 					waterfall("box", "main");
 					clickShow();
 				}
-				waterfall("box","main");
+				waterfall("box", "main");
 			}
 			window.onresize = function() {
 				waterfall("box", "main");
@@ -100,7 +100,7 @@
 			oParent.style.width = oEleW * cols + 'px';
 			var arrH = [];
 			for (var i = 0; i < oElement.length; i++) {
-				oElement[i].style.display="block";
+				oElement[i].style.display = "block";
 				if (i < cols) {
 					oElement[i].style = ""; //清空第一排图片的样式
 					arrH.push(oElement[i].offsetHeight);
