@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>我申的故事</title>
+    <link href="http://cdn.bootcss.com/fullPage.js/2.9.2/jquery.fullPage.css" rel="stylesheet">
+    <style>
+    .section {
+        text-align: center;
+        font: 50px "Microsoft Yahei";
+        color: #fff;
+    }
+    
+    .one span {
+        font-size: 14px;
+        position: relative;
+        right: -100px;
+    }
+    .one #turnoff{
+    	font-size:16px;
+    	margin-bottom:0;
+    	position:absolute;
+    	left:20px;
+    	bottom:20px;
+    	cursor:pointer;
+    }
+    .one #turnoff p{
+    	margin-bottom: 0;
+    }
+    
+    .home .img {
+        display: inline-block;
+        width: 560px;
+        height: 384px;
+        transform:translateY(-200px);
+        opacity:0;
+        transition:all 1s;
+    }
+    
+    .home .text {
+        display: inline-block;
+        width: 500px;
+        height: 384px;
+        margin-left: 50px;
+        overflow: hidden;
+        font-size: 30px;
+        text-align: left;
+        transform:translateY(200px);
+        opacity:0;
+        transition:all 1s;
+        /*	position:relative;
+	top:0;*/
+    }
+    
+    .home .img img {
+        width: 560px;
+    }
+	
+	.home.active .img{
+		transform:translateY(0);
+		opacity:1;
+	}
+    .home.active .text{
+		transform:translateY(0);
+		opacity:1;
+    }
+    
+    .three {
+        position: relative;
+    }
+    
+    .three .girl1 {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+    }
+    
+    .three .girl2 {
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        transform:translate(-100px,-100px);
+        opacity:0;
+        transition:all 2s .4s ease;
+    }
+    
+    .three .girl3 {
+        position: absolute;
+        top: 20%;
+        left: 25%;
+        transform:translateY(-100px);
+        opacity:0;
+        transition:all 2s .4s ease;
+    }
+    
+    .three .girl4 {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        transform:translate(100px,-100px);
+        opacity:0;
+        transition:all 2s .4s ease;
+    }
+    
+    .three .boy1 {
+        position: absolute;
+        top: 70%;
+        left: 20%;
+        transform:translate(-50px,100px);
+        opacity:0;
+        transition:all 2s .4s ease;
+    }
+    
+    .three .boy2 {
+        position: absolute;
+        top: 70%;
+        left: 35%;
+        transform:translate(50px,100px);
+        opacity:0;
+        transition:all 2s .4s ease;
+    }
+
+    .three.active .girl2,
+    .three.active .girl3,
+    .three.active .girl4,
+    .three.active .boy1,
+    .three.active .boy2{
+		transform:translate(0,0);
+		opacity:1;
+    }
+    
+    .three .text {
+        width: 500px;
+        position: absolute;
+        left: 55%;
+        top: 30%;
+        font-size: 30px;
+        text-align: left;
+        transform:translateY(-200px);
+        opacity:0;
+        transition:all .8s .4s;
+    }
+    .three.active .text{
+		transform:translateY(0);
+		opacity:1;
+    }
+    
+
+
+    .four .img {
+        display: inline-block;
+        width: 560px;
+        height: 412px;
+        margin-left: 50px;
+        position: relative;
+        transform:translateY(-200px);
+        opacity:0;
+        transition:all 1.2s;
+    }
+    
+    .four .img .girl {
+        position: absolute;
+        bottom: -150px;
+        left: 200px;
+		opacity:0;
+		transition:all 2s 1s;
+    }
+    
+    .four .img .nanjing {
+        width: 560px;
+    }
+    
+    .four .text {
+        display: inline-block;
+        width: 500px;
+        height: 384px;
+        overflow: hidden;
+        font-size: 30px;
+        text-align: left;
+        transform:translateX(-200px);
+        opacity:0;
+        transition:all 1s .5s;
+    }
+    .four.active .img{
+    	transform:translateY(0);
+    	opacity:1;
+    }
+    .four.active .img .girl{
+    	bottom:35px;
+    	opacity:1;
+    }
+	.four.active .text{
+		transform:translateX(0);
+		opacity:1;
+	}
+
+    .five {
+        position: relative;
+    }
+    
+    .five .text {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        font-size: 40px;
+        transform: translate(-50%,20%);
+        opacity:0;
+        transition:all .8s .5s;
+    }
+    
+    .five .girl {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        opacity:0;
+        transition:all 1.5s;
+    }
+    
+    .five .boy {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        opacity:0;
+        transition:all 1.5s;
+    }
+    
+    .five .love {
+        position: absolute;
+        top: 55%;
+        left: 45%;
+        opacity:0;
+        transition:opacity 2s 1.5s;
+    }
+    .five.active .text{
+    	transform:translate(-50%,0);
+    	opacity:1;
+    }
+    .five.active .girl{
+    	left:30%;
+    	opacity:1;
+    }
+    .five.active .boy{
+    	left:60%;
+    	opacity:1;
+    }
+    .five.active .love{
+    	opacity:1;
+    }
+	.five.active .love:hover{
+		animation:love infinite .5s;
+	}
+	
+	@keyframes love{
+		0%{
+			transform:rotateZ(0);
+		}
+		20%{
+			transform: rotateZ(-10deg);
+		}
+		40%{
+			transform:rotateZ(0);
+		}
+		60%{
+			transform:rotateZ(10deg);
+		}
+		80%{
+			transform:rotateZ(0);
+		}
+		100%{
+			transform:rotateZ(0);
+		}
+	}
+    
+    .six {
+        font-size: 30px;
+    }
+    .six .a,
+    .six .b,
+    .six .c,
+    .six .d,
+    .six .e,
+    .six .f{
+    	transform:translateY(100px);
+    	opacity:0;
+    }
+    .six.active .a,
+    .six.active .b,
+    .six.active .c,
+    .six.active .d,
+    .six.active .e,
+    .six.active .f{
+		transform:translateY(0);
+		opacity:1;
+    }
+    .six .a{transition:all 1s .5s;}
+    .six .b{transition:all 1s 1.5s;}
+    .six .c{transition:all 1s 2.5s;}
+    .six .d{transition:all 1s 3.5s;}
+    .six .e{transition:all 1s 4.5s;}
+    .six .f{transition:all 1s 5.5s;}
+    
+    .seven {
+        font-size: 30px;
+    }
+    .seven .a,
+    .seven .b,
+    .seven .c,
+    .seven .d,
+    .seven .e,
+    .seven .f{
+    	transform:translateX(100px);
+    	opacity:0;
+    }
+    .seven.active .a,
+    .seven.active .b,
+    .seven.active .c,
+    .seven.active .d,
+    .seven.active .e,
+    .seven.active .f{
+		transform:translateX(0);
+		opacity:1;
+    }
+    .seven .a{transition:all 1s .5s;}
+    .seven .b{transition:all 1s 1.5s;}
+    .seven .c{transition:all 1s 2.5s;}
+    .seven .d{transition:all 1s 3.5s;}
+    .seven .e{transition:all 1s 4.5s;}
+    .seven .f{transition:all 1s 5.5s;}
+
+    .seven #play{
+    	transform:translateX(-200px);
+    	opacity:0;
+    	transition:all 1s 6.5s;
+    }
+    .seven.active #play{
+    	transform:translateX(0);
+    	opacity:1;
+    }
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/fullPage.js/2.9.2/jquery.fullPage.min.js"></script>
+    <script>
+    $(function() {
+        $('#dowebok').fullpage({
+            sectionsColor: ['#1bbc9b', '#4BBFC3', 'rgb(247,197,152)', 'rgb(145,206,72)', 'rgb(249,164,165)', '#b7b7b7', '#DC9FB4'],
+            'navigation': true,
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div id="dowebok">
+        <div class="section one">
+            <img src="img/girl.png">
+            <h3>我申的故事</h3>
+            <span>story written by JonathanChan</span>
+            <div id="turnoff">
+            	<p id="info">关掉音乐</p>
+            </div>
+            <audio id="birthday">
+                <source src="happybirthday.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="section home">
+            <div class="img">
+                <img src="img/city.png">
+            </div>
+            <div class="text">
+                <p>“平遥的巷弄太逼仄，人不容易清醒，以为斜斜地披在肩上的暖阳，还是明清时的温婉样貌。”</p>
+                <p>都说一方水土养一方人，在这古城长大，人自然也会变得温婉美丽。</p>
+                <p>我申便是生长在这悠悠古韵的平遥城。</p>
+            </div>
+        </div>
+        <div class="section three">
+            <div class="girl1"><img src="img/girl1.png"></div>
+            <div class="girl2"><img src="img/girl2.png"></div>
+            <div class="girl3"><img src="img/girl3.png"></div>
+            <div class="girl4"><img src="img/girl4.png"></div>
+            <div class="boy1"><img src="img/boy1.png"></div>
+            <div class="boy2"><img src="img/boy2.png"></div>
+            <div class="text">
+                <p>一向热情开朗的她身边总少不了各种朋友，就这样无忧无虑的度过了十几年的时光。</p>
+                <p>这样的生活温暖而快乐。</p>
+            </div>
+        </div>
+        <div class="section four">
+            <div class="text">
+                <p>后来啊，她离家千里，来到了南京，来到了南京邮电大学</p>
+                <p>从有暖气的北方来到了没有暖气的南方。</p>
+                <p>从一座古城来到了另一座古都。</p>
+            </div>
+            <div class="img">
+                <img src="img/girl5.png" class="girl">
+                <img src="img/nanjing.jpg" class="nanjing">
+            </div>
+        </div>
+        <div class="section five">
+            <div class="text">
+                <p>在这里，她遇到了他</p>
+            </div>
+            <div class="girl"><img src="img/girl6.png"></div>
+            <div class="boy"><img src="img/boy.png"></div>
+            <div class="love"><img src="img/love.png"></div>
+        </div>
+        <div class="section six">
+            <p class="a">单身久了的他，似乎总意识不到自己的问题</p>
+            <p class="b">很多次，都让她伤心难过，却又不知如何安慰</p>
+            <p class="c">而她每次都很快地原谅不懂事的他</p>
+            <p class="d">她总说有个假男朋友</p>
+            <p class="e">其实他只是在感情方面愚钝了些</p>
+            <p class="f">但他也在努力改变，希望做她的真男朋友</p>
+        </div>
+        <div class="section seven">
+            <p class="a">今天是她的生日，希望她能一直这样开心快乐的过下去</p>
+            <p class="b">17年的她即将踏上考研的道路，朝着梦想努力地拼下去</p>
+            <p class="c">生日快乐，我的申</p>
+            <p class="d">Love U</p>
+            <p class="e">下面请听由他唱的难听的生日歌</p>
+   			<p class="f">希望我申不要嫌弃，点击蛋糕!!</p>
+            <img id="play" src="img/cake.png">
+            <audio id="music">
+                <source src="birthday.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    	window.onload=function(){
+    		var birthday=document.getElementById("birthday");
+    		var turnoff=document.getElementById("turnoff");
+    		var info=document.getElementById("info");
+    		birthday.play();
+    		turnoff.onclick=function(){
+    			if(birthday.paused){
+    				info.innerHTML="关闭音乐";
+    				birthday.play();
+    			}else{
+    				info.innerHTML="开启音乐";
+    				birthday.pause();
+    			}
+    			
+    		}
+    		var music=document.getElementById("music");
+    		var play=document.getElementById("play");
+    		play.onclick=function(){
+    			if(music.paused){
+    				birthday.pause();
+    				music.play();
+    			}else{
+    				music.pause();
+    			}
+    		}
+    	}
+    </script>
+</body>
+
+</html>
